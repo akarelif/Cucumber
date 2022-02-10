@@ -12,7 +12,7 @@ import utilities.Driver;
 
 public class AmazonStepDefinitions {
 
-    AmazonPages amazonPages=new AmazonPages();
+    AmazonPages amazonPages = new AmazonPages();
 
     @Given("kullanici amazon sayfasina gider")
     public void kullanici_amazon_sayfasina_gider() {
@@ -31,7 +31,7 @@ public class AmazonStepDefinitions {
     @Then("sonuclarin iPhone icerdigini test eder")
     public void sonuclarin_iphone_icerdigini_test_eder() {
 
-        String sonucYazisiStr=amazonPages.sonucYazisiElementi.getText();
+        String sonucYazisiStr = amazonPages.sonucYazisiElementi.getText();
         Assert.assertTrue(sonucYazisiStr.contains("iPhone"));
     }
 
@@ -44,7 +44,7 @@ public class AmazonStepDefinitions {
     @Then("sonuclarin tea pot icerdigini test eder")
     public void sonuclarin_tea_pot_icerdigini_test_eder() {
 
-        String sonucYazisiStr=amazonPages.sonucYazisiElementi.getText();
+        String sonucYazisiStr = amazonPages.sonucYazisiElementi.getText();
         Assert.assertTrue(sonucYazisiStr.contains("tea pot"));
     }
 
@@ -57,9 +57,31 @@ public class AmazonStepDefinitions {
     @Then("sonuclarin flower icerdigini test eder")
     public void sonuclarin_flower_icerdigini_test_eder() {
 
-        String sonucYazisiStr=amazonPages.sonucYazisiElementi.getText();
+        String sonucYazisiStr = amazonPages.sonucYazisiElementi.getText();
         Assert.assertTrue(sonucYazisiStr.contains("flower"));
     }
 
+    @Given("{string} icin arama yapar")
+    public void icin_arama_yapar(String arananKelime) {
 
+        amazonPages.aramaKutusu.sendKeys(arananKelime + Keys.ENTER);
+    }
+
+    @Then("sonuclarin {string} icerdigini test eder")
+    public void sonuclarin_icerdigini_test_eder(String arananKelime) {
+
+        String sonucYazisiStr = amazonPages.sonucYazisiElementi.getText();
+        Assert.assertTrue(sonucYazisiStr.contains(arananKelime));
+    }
+
+    @And("sayfayi kapatir")
+    public void sayfayiKapatir() {
+        Driver.closeDriver();
+    }
+
+    @Given("kullanici {string} sayfasina gider")
+    public void kullaniciSayfasinaGider(String istenenUrl) {
+
+        Driver.getDriver().get(ConfigReader.getProperty(istenenUrl));
+    }
 }
