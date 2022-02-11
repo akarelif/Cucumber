@@ -9,7 +9,6 @@ Feature: US1005 Negative login testi
     And giris yapilamadigini test eder
     And sayfayi kapatir
 
-
   Scenario:TC10_Dogru username, yanlis  sifre ile giris yapilamaz
     Given kullanici "HMCUrl" sayfasina gider
     Then login linkine tiklar

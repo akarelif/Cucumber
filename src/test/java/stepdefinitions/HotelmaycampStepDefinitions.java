@@ -4,8 +4,6 @@ import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import org.junit.Assert;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.FindBy;
 import pages.HMCPage;
 import utilities.ConfigReader;
 
@@ -38,4 +36,21 @@ public class HotelmaycampStepDefinitions {
     public void girisYapilamadiginiTestEder() {
         Assert.assertTrue(hmcpage.girisYapilamadiYaziElementi.isDisplayed());
     }
+
+
+    @Then("scenario outline'dan kullanici adi olarak {string} yazar")
+    public void scenarioOutlineDanKullaniciAdiOlarakYazar(String username) {
+        hmcpage.usernameTextBox.sendKeys(username);
+    }
+
+    @And("scenario outline'dan password olarak {string} yazar")
+    public void scenarioOutlineDanPasswordOlarakYazar(String password) {
+        hmcpage.passwordTextBox.sendKeys(password);
+    }
+
+    @And("Login butonuna basar")
+    public void loginButonunaBasar() {
+        hmcpage.loginButonu.click();
+    }
 }
+
