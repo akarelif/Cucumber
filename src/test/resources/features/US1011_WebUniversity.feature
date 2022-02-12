@@ -19,4 +19,4 @@ Feature: US1011 WebUniversity Window Handle
     Examples:
 
       |username|password|
-      |Mustafa |Donat   |
+      |Elif|Akar |
