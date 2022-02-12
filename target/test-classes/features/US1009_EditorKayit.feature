@@ -1,3 +1,4 @@
+@Editor
 Feature: TC14 kullanici yeni kayit ekleyebilmeli
 
 Scenario Outline: TC14 kullanici yeni kayit ekleyebilmeli
@@ -20,7 +21,8 @@ Scenario Outline: TC14 kullanici yeni kayit ekleyebilmeli
 
   Examples:
     | firstname | lastname | position | office | extension | startDate | salary |
-    | Elif | Akar | QA | Ankara | QA | 2020-10-23 | 18000 |
+    | Elif | Akar | QA | Ankara | QA | 2020-10-23 | 1500 |
+    | Derya | Soylu | PO | İstanbul | Po | 2022-02-24 | 18000 |
 
 
 
